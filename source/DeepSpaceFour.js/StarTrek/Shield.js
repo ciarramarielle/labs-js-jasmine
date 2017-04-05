@@ -1,13 +1,18 @@
 Shield = function() {
 	this.raised = false
-	this.energy = 0
+	this.strength = 0
+	this.shipEnergyReserves = 10000
 };
 
 Shield.prototype = {
 	raise: function() {
 		this.raised = true
 	},
-	transferEnergy : function(n) {
-		this.energy += n
+	transferEnergy : function(energy) {
+		if (energy > this.shipEnergyReserves) {
+			energy = this.shipEnergyReserves
+		}
+		this.strength += energy
+		this.shipEnergyReserves -= energy
 	}
 };
