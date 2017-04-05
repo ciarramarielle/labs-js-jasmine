@@ -1,8 +1,8 @@
 Shield = function() {
-
+	this.raised = false
 };
 Shield.prototype = {
-	publicF: function() {
-		
+	raise: function() {
+		this.raised = true
 	}
 };

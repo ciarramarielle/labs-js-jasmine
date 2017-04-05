@@ -1,5 +1,10 @@
 describe("shields", () => {
 	beforeEach(() => {
-		Shield = new Shield()
+		shield = new Shield()
+	})
+
+	it("raises shield", () => {
+		shield.raise()
+		expect(shield.raised).toBeTruthy()
 	})
 })
