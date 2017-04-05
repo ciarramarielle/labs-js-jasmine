@@ -1,5 +1,5 @@
-describe("testing the test", () => {
-	it('should fail... ;)', () => {
-		expect('').toEqual('noooo')
+describe("shields", () => {
+	beforeEach(() => {
+		Shield = new Shield()
 	})
 })
