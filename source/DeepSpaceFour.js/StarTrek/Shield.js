@@ -8,6 +8,9 @@ Shield.prototype = {
 	raise: function() {
 		this.raised = true
 	},
+	lower: function() {
+		this.raised = false
+	},
 	transferEnergy : function(energy) {
 		if (energy > this.shipEnergyReserves) {
 			// ship to shield

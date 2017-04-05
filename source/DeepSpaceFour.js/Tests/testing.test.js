@@ -8,6 +8,11 @@ describe("shields", () => {
 		expect(shield.raised).toBeTruthy()
 	})
 
+	it("can be lowered", () => {
+		shield.lower()
+		expect(shield.raised).toBeFalsy()
+	})
+
 	describe("when transferring energy from ship to shield", () => {
 		var current
 		var currentShipReserve
