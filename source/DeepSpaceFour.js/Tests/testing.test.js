@@ -48,11 +48,11 @@ describe("shields", () => {
 			expect(shield.shipEnergyReserves).toEqual(currentShipReserve-energy)
 		})
 
-		// it("does not allow transfer of >10000 energy", () => {
-		// 	var energy = 10001
-		// 	shield.transferEnergy(energy)
-		// 	expect(shield.strength).toEqual(10000)
-		// 	expect(shield.shipEnergyReserves).toEqual(0)
-		// })
+		it("does not allow shield strength to be <0", () => {
+			var energy = -5001
+			shield.transferEnergy(energy)
+			expect(shield.strength).toEqual(0)
+			expect(shield.shipEnergyReserves).toEqual(10000)
+		})
 	})
 })
