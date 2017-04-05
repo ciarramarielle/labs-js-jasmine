@@ -3,12 +3,12 @@ describe("shields", () => {
 		shield = new Shield()
 	})
 
-	it("raises shield", () => {
+	it("can be raised", () => {
 		shield.raise()
 		expect(shield.raised).toBeTruthy()
 	})
 
-	describe("when transferring energy", () => {
+	describe("when transferring energy from ship to shield", () => {
 		var current
 		var currentShipReserve
 		beforeEach(() => {
@@ -31,5 +31,28 @@ describe("shields", () => {
 		})
 	})
 
+	describe("when transferring energy from shield to ship", () => {
+		var current
+		var currentShipReserve
+		beforeEach(() => {
+			var energy = 5000
+			shield.transferEnergy(energy)			
+			current = shield.strength
+			currentShipReserve = shield.shipEnergyReserves
+		})
 
+		it("transfers n energy from shield to ship", () => {
+			var energy = -1
+			shield.transferEnergy(energy)	
+			expect(shield.strength).toEqual(current+energy)
+			expect(shield.shipEnergyReserves).toEqual(currentShipReserve-energy)
+		})
+
+		// it("does not allow transfer of >10000 energy", () => {
+		// 	var energy = 10001
+		// 	shield.transferEnergy(energy)
+		// 	expect(shield.strength).toEqual(10000)
+		// 	expect(shield.shipEnergyReserves).toEqual(0)
+		// })
+	})
 })
