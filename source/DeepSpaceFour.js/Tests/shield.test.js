@@ -88,14 +88,18 @@ describe("shields", () => {
 				expect(shield.strength).toBeLessThan(1000)
 			})
 
-			describe("when sheilds are depleted", () => {
+			describe("when shields are depleted to 0", () => {
 				beforeEach(() =>{
-					shield.strength = 0
+					shield.strength = 1000
+					shield.getHit(1001)
 				})
 
-				it ("does not take damage", () => {
-					shield.getHit(1000)
+				it ("should have 0 strength", () => {
 					expect(shield.strength).toEqual(0)
+				})
+
+				it ("should be lowered", () => {
+					expect(shield.raised).toBeFalsy()
 				})
 				
 			})

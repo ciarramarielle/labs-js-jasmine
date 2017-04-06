@@ -28,6 +28,7 @@ Shield.prototype = {
 
 			if (excessDamage > 0){
 				shield.strength = 0;
+				shield.lower()
 			}
 			else {
 				shield.strength -= damage	
