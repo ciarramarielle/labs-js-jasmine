@@ -60,4 +60,24 @@ describe("shields", () => {
 			expect(shield.shipEnergyReserves).toEqual(10000)
 		})
 	})
+
+	describe("when enemy fires", () => {
+		
+		beforeEach(()=>{
+			shield.strength = 1000
+			
+		})
+
+		describe("when shield is down", () => {
+			beforeEach(() =>{
+				shield.lower()
+			})
+
+			it("does not take damage", () => {
+				shield.getHit()
+				expect(shield.strength).toEqual(1000)
+			})
+		})
+
+	})
 })

@@ -21,5 +21,8 @@ Shield.prototype = {
 		}
 		this.strength += energy
 		this.shipEnergyReserves -= energy
+	},
+	getHit : function(){
+		
 	}
 };
