@@ -2,6 +2,9 @@ Shield = function() {
 	this.raised = false
 	this.strength = 0
 	this.shipEnergyReserves = 10000
+
+	// TODO: need to be refactored, maybe moved to Subsystem class
+	this.damagedSubsystem = false
 };
 
 Shield.prototype = {
@@ -29,6 +32,7 @@ Shield.prototype = {
 			if (excessDamage > 0){
 				shield.strength = 0;
 				shield.lower()
+				shield.damagedSubsystem = true
 			}
 			else {
 				shield.strength -= damage	

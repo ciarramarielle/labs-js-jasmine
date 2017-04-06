@@ -102,6 +102,10 @@ describe("shields", () => {
 					expect(shield.raised).toBeFalsy()
 				})
 				
+				// TODO: should refactor into subsystem class
+				it("should damage a random subsystem", () => {
+					expect(shield.damagedSubsystem).toBeTruthy()
+				})
 			})
 		})
 	})
