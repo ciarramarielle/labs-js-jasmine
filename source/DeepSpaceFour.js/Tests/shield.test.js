@@ -62,7 +62,6 @@ describe("shields", () => {
 	})
 
 	describe("when enemy fires", () => {
-		
 		beforeEach(()=>{
 			shield.strength = 1000
 			
@@ -74,10 +73,20 @@ describe("shields", () => {
 			})
 
 			it("does not take damage", () => {
-				shield.getHit()
+				shield.getHit(1000)
 				expect(shield.strength).toEqual(1000)
 			})
 		})
 
+		describe("when shield is up", () => {
+			beforeEach(() =>{
+				shield.raise()
+			})
+
+			it("shields take damage", () => {
+				shield.getHit(1000)
+				expect(shield.strength).toBeLessThan(1000)
+			})
+		})
 	})
 })

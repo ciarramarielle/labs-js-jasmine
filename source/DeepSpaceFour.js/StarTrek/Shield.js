@@ -22,7 +22,9 @@ Shield.prototype = {
 		this.strength += energy
 		this.shipEnergyReserves -= energy
 	},
-	getHit : function(){
-		
+	getHit : function(damage){
+		if (shield.raised){
+			shield.strength -= damage
+		}
 	}
 };
