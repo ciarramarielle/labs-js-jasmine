@@ -87,6 +87,18 @@ describe("shields", () => {
 				shield.getHit(1000)
 				expect(shield.strength).toBeLessThan(1000)
 			})
+
+			describe("when sheilds are depleted", () => {
+				beforeEach(() =>{
+					shield.strength = 0
+				})
+
+				it ("does not take damage", () => {
+					shield.getHit(1000)
+					expect(shield.strength).toEqual(0)
+				})
+				
+			})
 		})
 	})
 })

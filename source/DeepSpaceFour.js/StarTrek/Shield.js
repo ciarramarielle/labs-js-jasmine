@@ -24,7 +24,14 @@ Shield.prototype = {
 	},
 	getHit : function(damage){
 		if (shield.raised){
-			shield.strength -= damage
+			var excessDamage = damage - shield.strength
+
+			if (excessDamage > 0){
+				shield.strength = 0;
+			}
+			else {
+				shield.strength -= damage	
+			}
 		}
 	}
 };
