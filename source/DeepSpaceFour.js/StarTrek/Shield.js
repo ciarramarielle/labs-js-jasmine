@@ -21,5 +21,17 @@ Shield.prototype = {
 		}
 		this.strength += energy
 		this.shipEnergyReserves -= energy
+	},
+	getHit : function(damage){
+		if (shield.raised){
+			var excessDamage = damage - shield.strength
+
+			if (excessDamage > 0){
+				shield.strength = 0;
+			}
+			else {
+				shield.strength -= damage	
+			}
+		}
 	}
 };
