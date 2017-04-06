@@ -2,11 +2,15 @@
  * Created by scottdunn on 4/6/17.
  */
 Subsystem = function () {
-    this.isDamaged = false
+    this.damaged = false
 };
 
 Subsystem.prototype = {
 	damage: function () {
-		this.isDamaged = true
+		this.damaged = true
+	},
+
+	isDamaged: function () {
+		return this.damaged
 	}
 }
