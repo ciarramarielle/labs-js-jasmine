@@ -1,7 +1,0 @@
-Weapon = function() {
-	
-};
-
-Weapon.prototype = {
-	
-};

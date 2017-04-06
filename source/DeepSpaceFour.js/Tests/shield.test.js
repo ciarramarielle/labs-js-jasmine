@@ -60,4 +60,45 @@ describe("shields", () => {
 			expect(shield.shipEnergyReserves).toEqual(10000)
 		})
 	})
+
+	describe("when enemy fires", () => {
+		beforeEach(()=>{
+			shield.strength = 1000
+			
+		})
+
+		describe("when shield is down", () => {
+			beforeEach(() =>{
+				shield.lower()
+			})
+
+			it("does not take damage", () => {
+				shield.getHit(1000)
+				expect(shield.strength).toEqual(1000)
+			})
+		})
+
+		describe("when shield is up", () => {
+			beforeEach(() =>{
+				shield.raise()
+			})
+
+			it("shields take damage", () => {
+				shield.getHit(1000)
+				expect(shield.strength).toBeLessThan(1000)
+			})
+
+			describe("when sheilds are depleted", () => {
+				beforeEach(() =>{
+					shield.strength = 0
+				})
+
+				it ("does not take damage", () => {
+					shield.getHit(1000)
+					expect(shield.strength).toEqual(0)
+				})
+				
+			})
+		})
+	})
 })
