@@ -6,7 +6,7 @@ Subsystem = function () {
 };
 
 Subsystem.prototype = {
-    isDamaged: function () {
-        return this.isDamaged
-    }
+	damage: function () {
+		this.isDamaged = true
+	}
 }
