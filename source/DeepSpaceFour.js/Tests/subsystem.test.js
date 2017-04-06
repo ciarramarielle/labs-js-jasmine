@@ -1,5 +1,11 @@
-describe ("subsystems", function () {
-    it("contains spec with an expectation", function () {
-        expect(true).toBe(true);
+describe ("subsystems", () => {
+    beforeEach(() => {
+        subsystem = new Subsystem()
+    }
+    )
+    it("Starts not damaged", () => {
+        expect(subsystem.isDamaged).toBeFalsy()
     });
+
+
 });
