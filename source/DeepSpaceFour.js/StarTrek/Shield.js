@@ -5,9 +5,20 @@ Shield = function() {
 
 	// TODO: need to be refactored, maybe moved to Subsystem class
 	this.damagedSubsystem = false
+	return this
 };
 
+Shield.prototype = new Subsystem()
+
 Shield.prototype = {
+	// temporary function defs
+	damage: function() {
+		return 1
+	},
+	isDamaged: function() {
+		return 2
+	},
+	// end temporary function defs
 	raise: function() {
 		this.raised = true
 	},
