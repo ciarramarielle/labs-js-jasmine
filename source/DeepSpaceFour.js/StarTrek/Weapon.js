@@ -1,0 +1,7 @@
+Weapon = function() {
+	
+};
+
+Weapon.prototype = {
+	
+};
