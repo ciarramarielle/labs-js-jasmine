@@ -11,14 +11,6 @@ Shield = function() {
 Shield.prototype = new Subsystem()
 
 Shield.prototype = {
-	// temporary function defs
-	damage: function() {
-		return 1
-	},
-	isDamaged: function() {
-		return 2
-	},
-	// end temporary function defs
 	raise: function() {
 		this.raised = true
 	},
