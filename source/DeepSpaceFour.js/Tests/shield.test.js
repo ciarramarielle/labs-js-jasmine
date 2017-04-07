@@ -23,18 +23,18 @@ describe("shields", () => {
 			
 		})
 
-		describe("when shield is down", () => {
+		describe("when shields are down", () => {
 			beforeEach(() =>{
 				shield.lower()
 			})
 
-			it("does not take damage", () => {
+			it("shields do not take damage", () => {
 				shield.getHit(1000)
 				expect(shield.strength).toEqual(1000)
 			})
 		})
 
-		describe("when shield is up", () => {
+		describe("when shields are up", () => {
 			beforeEach(() =>{
 				shield.raise()
 			})
@@ -50,15 +50,15 @@ describe("shields", () => {
 					shield.getHit(1001)
 				})
 
-				it ("should have 0 strength", () => {
+				it ("shields should have 0 strength", () => {
 					expect(shield.strength).toEqual(0)
 				})
 
-				it ("should be lowered", () => {
+				it ("shields should be lowered", () => {
 					expect(shield.raised).toBeFalsy()
 				})
 				
-				it("should damage a random subsystem", () => {
+				it("shields should damage a random subsystem", () => {
 					expect(shield.damagedSubsystem).toBeTruthy()
 				})
 			})
