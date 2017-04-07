@@ -25,4 +25,42 @@ describe("game", () => {
         expect(game.location.y).toEqual(jasmine.any(Number))
     })
 
+    describe("when getting a random number from bounds", () => {
+        describe("when level: novice", () => {
+            var retVal
+            beforeEach(() => {
+                retVal = game.randomGenerate(0, game.level.novice)
+            })
+
+            it("should return a number less than or equal to novice bound", () => {
+                expect(retVal).not.toBeLessThan(0) // >=0
+                expect(retVal).not.toBeGreaterThan(game.level.novice)
+            })
+        })
+        
+        describe("when level: intermediate", () => {
+            var retVal
+            beforeEach(() => {
+                retVal = game.randomGenerate(0, game.level.intermediate)
+            })
+
+            it("should return a number less than or equal to intermediate bound", () => {
+                expect(retVal).not.toBeLessThan(0)
+                expect(retVal).not.toBeGreaterThan(game.level.intermediate)
+            })
+        })
+
+        describe("when level: expert", () => {
+            var retVal
+            beforeEach(() => {
+                retVal = game.randomGenerate(0, game.level.expert)
+            })
+
+            it("should return a number less than or equal to expert bound", () => {
+                expect(retVal).not.toBeLessThan(0)
+                expect(retVal).not.toBeGreaterThan(game.level.expert)
+            })
+        })
+    })
+
 })
