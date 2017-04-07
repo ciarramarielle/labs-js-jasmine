@@ -6,11 +6,13 @@ Subsystem = function () {
 };
 
 Subsystem.prototype = {
+	isDamaged: function () {
+		return this.damaged
+	},
 	damage: function () {
 		this.damaged = true
 	},
-
-	isDamaged: function () {
-		return this.damaged
+	repairFull: function () {
+		this.damaged = false
 	}
 }
