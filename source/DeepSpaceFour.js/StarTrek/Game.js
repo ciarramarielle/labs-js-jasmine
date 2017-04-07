@@ -7,7 +7,7 @@ Game = function(level) {
         case 'expert':
             this.levelBound = 15
         default:
-            this.levelBound = 0
+            this.levelBound = 5
     }
 
     this.Klingons = this.randomGenerate(0, this.levelBound)
