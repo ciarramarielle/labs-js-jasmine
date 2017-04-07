@@ -1,14 +1,16 @@
 describe ("engine", () => {
     beforeEach(() => {
-        engine = new Engine()
-        shield = new Shield()
+        ship = new Ship()
+        engine = ship.engine
+        shield = ship.shield
     }
     )
-//    it("Warp", () => {
+    it("Warp", () => {
+    	expect(true).toBeTruthy()
 //    	var current = shield.shipEnergyReserves
 //    	engine.warp(shield)
 //        expect(shield.shipEnergyReserves).toBeLessThan(current)
-//    })
+    })
 
 
 });
