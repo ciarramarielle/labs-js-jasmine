@@ -3,6 +3,10 @@ describe("shields", () => {
 		shield = new Shield()
 	})
 
+	it ("is a subsystem", () => {
+		expect(shield.damaged).toBeFalsy()
+	})
+
 	it("can be raised", () => {
 		shield.raise()
 		expect(shield.raised).toBeTruthy()

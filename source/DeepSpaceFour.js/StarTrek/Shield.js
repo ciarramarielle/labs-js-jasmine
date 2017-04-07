@@ -5,7 +5,10 @@ Shield = function() {
 
 	// TODO: need to be refactored, maybe moved to Subsystem class
 	this.damagedSubsystem = false
+	return this
 };
+
+Shield.prototype = new Subsystem()
 
 Shield.prototype = {
 	raise: function() {
