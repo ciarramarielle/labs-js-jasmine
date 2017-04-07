@@ -10,12 +10,12 @@ Game = function(level) {
             this.levelBound = 0
     }
 
-    this.Klingons = 1
-    this.Starbases = 1
-    this.Stardates = 1
+    this.Klingons = this.randomGenerate(0, this.levelBound)
+    this.Starbases = this.randomGenerate(0, this.levelBound)
+    this.Stardates = this.randomGenerate(0, this.levelBound)
     this.location = {
-        x: 1,
-        y: 1
+        x: this.randomGenerate(0, this.levelBound),
+        y: this.randomGenerate(0, this.levelBound)
     }
 }
 

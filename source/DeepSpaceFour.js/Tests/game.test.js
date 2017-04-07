@@ -5,10 +5,6 @@ describe("game", () => {
     })
 
     describe("should be initialized", () => {
-        beforeEach(()=> {
-            // game.initialize()
-        })
-
         it("should be defined", () => {
             expect(game).toBeDefined()
         })
