@@ -1,9 +1,5 @@
 var game
 describe("game", () => {
-    beforeEach(() => {
-        game = new Game('novice')
-    })
-
     describe("when getting a random number from bounds", () => {
         describe("when level: novice", () => {
             var retVal
@@ -46,6 +42,10 @@ describe("game", () => {
     })
     
     describe("should be initialized", () => {
+        beforeEach(() => {
+            game = new Game('novice')
+        })
+
         it("should be defined", () => {
             expect(game).toBeDefined()
         })
