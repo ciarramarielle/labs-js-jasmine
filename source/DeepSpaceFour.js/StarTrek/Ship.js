@@ -7,5 +7,21 @@ Ship = function(){
 Ship.prototype = {
 	getRemainingEnergy: function(){
 		return this.energy
+	},
+	transferEnergyToShield : function(energy) {
+		if (this.shield.strength + energy > this.shield.getMaxStrength()) {
+			this.shield.strength = this.shield.getMaxStrength()
+		} else {
+			this.shield.strength += energy
+		}
+		this.energy -= energy
+	},
+	getEnergyFromShield: function(energy) {
+		if (this.shield.strength - energy < this.shield.getMinStrength()) {
+			this.shield.strength = this.shield.getMinStrength()
+		} else {
+			this.shield.strength -= energy
+		}
+		this.energy += energy
 	}
 }

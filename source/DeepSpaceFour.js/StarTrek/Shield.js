@@ -5,6 +5,8 @@ Shield = function() {
 
 	// TODO: need to be refactored, maybe moved to Subsystem class
 	this.damagedSubsystem = false
+	this.maxStrength = 10000
+	this.minStrength = 0
 	return this
 };
 
@@ -41,5 +43,11 @@ Shield.prototype = {
 				shield.strength -= damage	
 			}
 		}
+	},
+	getMaxStrength: function() {
+		return this.maxStrength
+	},
+	getMinStrength: function() {
+		return this.minStrength
 	}
 };
