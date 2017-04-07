@@ -22,5 +22,11 @@ describe ("engine", () => {
     	expect(ship.getRemainingEnergy()).toEqual(startingEnergy-6.4)    
     })
 
+    it("Can't warp negative amounts", () => {
+        expect(engine.warp(-1,0,8)).toBeFalsy()
+        expect(ship.getRemainingEnergy()).toEqual(startingEnergy)
+
+    })
+
 
 });
