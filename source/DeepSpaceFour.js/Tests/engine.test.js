@@ -9,15 +9,17 @@ describe ("engine", () => {
         ship = new Ship()
         engine = ship.engine
         shield = ship.shield
+        startingEnergy = ship.getRemainingEnergy()
     }
     )
     it("Warp no distant", () => {
-    	var current = ship.getRemainingEnergy()
     	engine.warp(1, 0, 0)
-    	expect(ship.getRemainingEnergy()).toEqual(current)
-//    	var current = shield.shipEnergyReserves
-//    	engine.warp(shield)
-//        expect(shield.shipEnergyReserves).toBeLessThan(current)
+    	expect(ship.getRemainingEnergy()).toEqual(startingEnergy)
+    })
+    
+    it("Warp no quadrants, but some sectors", () => {
+    	engine.warp(2,0,8)
+    	expect(ship.getRemainingEnergy()).toEqual(startingEnergy-6.4)    
     })
 
 
