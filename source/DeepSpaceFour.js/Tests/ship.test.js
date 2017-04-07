@@ -11,21 +11,38 @@ describe ("Ship", () => {
     })
 
     describe("when transferring n energy to the shield", () => {
-        ship = new Ship()
-
-        var currentEnergy = ship.energy
-        var currentShieldStrength = ship.shield.strength
-
+        var currentEnergy
+        var currentShieldStrength
         beforeEach(() => {
-            ship.transferEnergyToShield(100)
+            ship = new Ship()
+
+            currentEnergy = ship.energy
+            currentShieldStrength = ship.shield.strength
         })
 
-        it("should have n less energy", ()=> {
-            expect(ship.energy).toBe(currentEnergy-100)
+        describe("when energy within bounds", () => {
+            beforeEach(()=> {
+                ship.transferEnergyToShield(100)
+            })
+
+            it("should have n less energy", ()=> {
+                expect(ship.energy).toBe(currentEnergy-100)
+            })
+
+            it("s shield should have n more strength", () => {
+                expect(ship.shield.strength).toBe(currentShieldStrength+100)
+            })
         })
 
-        it("s shield should have n more strength", () => {
-            expect(ship.shield.strength).toBe(currentShieldStrength+100)
+        describe("when energy passes max shield strength", () => {
+            beforeEach(()=>{
+                var energy = 10001
+                ship.transferEnergyToShield(energy)
+            })
+
+            it("should only turn shield strength into max value", () => {
+                expect(ship.shield.strength).toBe(ship.shield.getMaxStrength())
+            })
         })
     })
 });

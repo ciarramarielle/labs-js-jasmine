@@ -9,8 +9,11 @@ Ship.prototype = {
 		return this.energy
 	},
 	transferEnergyToShield : function(energy) {
-		// TODO: Test for min and max values of ship strength
-		this.shield.strength += energy
+		if (this.shield.strength + energy > this.shield.getMaxStrength()) {
+			this.shield.strength = this.shield.getMaxStrength()
+		} else {
+			this.shield.strength += energy
+		}
 		this.energy -= energy
 	}
 }
