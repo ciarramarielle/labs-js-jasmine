@@ -1,5 +1,5 @@
 var ship
-describe ("Ship", () => {
+describe ("ships", () => {
     beforeEach(() => {
         ship = new Ship()
     })
@@ -14,13 +14,21 @@ describe ("Ship", () => {
         var currentEnergy
         var currentShieldStrength
         beforeEach(() => {
-            ship = new Ship()
-
             currentEnergy = ship.energy
             currentShieldStrength = ship.shield.strength
         })
 
-        describe("when energy within bounds", () => {
+        describe("when n energy is more than the ship energy reserve", () => {
+            beforeEach(()=> {
+                ship.transferEnergyToShield(100001)
+            })
+
+            it("should only transfer energy reserve", () => {
+                expect(ship.energy).toBe(0)
+            })
+        })
+
+        describe("when ship energy will be within min and max", () => {
             beforeEach(()=> {
                 ship.transferEnergyToShield(100)
             })
@@ -29,31 +37,31 @@ describe ("Ship", () => {
                 expect(ship.energy).toBe(currentEnergy-100)
             })
 
-            it("s shield should have n more strength", () => {
+            it("its shield should have n more strength", () => {
                 expect(ship.shield.strength).toBe(currentShieldStrength+100)
             })
         })
 
-        describe("when energy passes max shield strength", () => {
+        describe("when attempting to add energy that will pass max value", () => {
+            var energy
             beforeEach(()=>{
-                var energy = 10001
+                energy = 10001
                 ship.transferEnergyToShield(energy)
             })
 
-            it("should only turn shield strength into max value", () => {
+            it("should not allow shield strength to have more than max value", () => {
                 expect(ship.shield.strength).toBe(ship.shield.getMaxStrength())
             })
         })
+    })
+    describe("when attempting to consume shield energy that will pass min value", () => {
+        beforeEach(()=>{
+            var energy = 1
+            ship.getEnergyFromShield(energy)
+        })
 
-        describe("when energy passes min shield strength", () => {
-            beforeEach(()=>{
-                var energy = 1
-                ship.getEnergyFromShield(energy)
-            })
-
-            it("should only turn shield strength into min value", () => {
-                expect(ship.shield.strength).toBe(ship.shield.getMinStrength())
-            })
+        it("should not allow shield strength to have less than min value", () => {
+            expect(ship.shield.strength).toBe(ship.shield.getMinStrength())
         })
     })
 });
