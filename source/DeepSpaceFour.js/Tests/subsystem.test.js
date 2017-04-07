@@ -18,7 +18,7 @@ describe ("subsystems", () => {
         })
 
         it("cannot function", ()=> {
-            expect(subsystem.isDamaged()).toBeTruthy()
+            expect(subsystem.canFunction()).toBeFalsy()
         })
 
         describe("once fully repaired", () => {
@@ -27,7 +27,7 @@ describe ("subsystems", () => {
             })
 
             it("can function once fully repaired", () => {
-                expect(subsystem.isDamaged()).toBeFalsy()
+                expect(subsystem.canFunction()).toBeTruthy()
             })
         })
     })

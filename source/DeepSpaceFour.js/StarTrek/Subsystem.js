@@ -9,6 +9,9 @@ Subsystem.prototype = {
 	isDamaged: function () {
 		return this.damaged
 	},
+	canFunction: function () {
+		return !this.damaged
+	},
 	damage: function () {
 		this.damaged = true
 	},
