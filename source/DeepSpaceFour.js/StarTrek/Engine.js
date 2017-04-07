@@ -3,7 +3,7 @@ Engine = function(){
 }
 
 Engine.prototype = {
-	warp: function(shield){
+	warp: function(warpFactor, quadrants, sectors){
 		
 	}
 }
