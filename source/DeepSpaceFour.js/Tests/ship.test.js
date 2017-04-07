@@ -44,5 +44,16 @@ describe ("Ship", () => {
                 expect(ship.shield.strength).toBe(ship.shield.getMaxStrength())
             })
         })
+
+        describe("when energy passes min shield strength", () => {
+            beforeEach(()=>{
+                var energy = 1
+                ship.getEnergyFromShield(energy)
+            })
+
+            it("should only turn shield strength into min value", () => {
+                expect(ship.shield.strength).toBe(ship.shield.getMinStrength())
+            })
+        })
     })
 });

@@ -15,5 +15,13 @@ Ship.prototype = {
 			this.shield.strength += energy
 		}
 		this.energy -= energy
+	},
+	getEnergyFromShield: function(energy) {
+		if (this.shield.strength - energy < this.shield.getMinStrength()) {
+			this.shield.strength = this.shield.getMinStrength()
+		} else {
+			this.shield.strength -= energy
+		}
+		this.energy += energy
 	}
 }
